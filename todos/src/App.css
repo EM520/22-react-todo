@@ -1,43 +1,88 @@
-*{
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: rgb(233, 241, 245);
 }
 
-.header{
-  font-family:sans-serif;
+.header {
+  font-family: sans-serif;
   font-size: 100px;
-  color:rgb(241, 191, 191);
+  color: rgb(241, 191, 191);
   text-align: center;
   font-weight: lighter;
 }
 
-form{
-  border:3px solid white;
-  width: 50%;
-  height: 600px;
-  margin:0 auto;
-  
+form {
+  border: 3px solid white;
+  width: 60%;
+  height: 600vh;
+  margin: 0 auto;
 }
 
-.input{
-  margin-left:50px;
-  width:80%;
-  height:50px;
-  background-color:transparent;
-  border:3px solid white;
-  margin-top:10px;
+.input {
+  margin-left: 30px;
+  width: 90%;
+  height: 50px;
+  background-color: transparent;
+  border: 3px solid white;
+  margin-top: 10px;
   box-shadow: 10px 10px 5px rgb(156, 154, 154);
   font-size: 25px;
-  font-family: 'Franklin Gothic Medium', Arial;
+  font-family: "Franklin Gothic Medium", Arial;
   font-style: italic;
+}
+
+.input:focus {
+  outline: none;
+}
+
+#todoList{
+  margin-left: 30px;
+  width: 80%;
+  height: 50px;
+  background-color: transparent;
+  border-bottom: 3px solid white;
+  margin-top: 10px;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", Arial;
+  font-style: italic;
+  list-style-type:none;
+}
+
+
+/* Create a custom radio button */
+.checkmark {
+  height: 25px;
+  width: 25px;
   
 }
 
-.input:focus{
-  outline: none;
+.done{
+  text-decoration: line-through lightgrey;
+  color:lightgrey;
+  
+  
+}
+.footer{
+  width: 80%;
+  margin-left: 30px;
+  border-bottom: 3px solid white;
+  padding-left: 10px;
+  padding-top:20px ;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color:grey;
+}
+.footer span{
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+.hidden{
+  display: none;
 }

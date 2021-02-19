@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import Todos from './Todos'
+import logo from "./logo.svg";
+import "./App.css";
+import TodoApp from "./todo/TodoApp";
 
 function App() {
   return (
     <div className="App">
-      <Todos/>
+      <TodoApp />
     </div>
   );
 }
