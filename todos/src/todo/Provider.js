@@ -12,9 +12,13 @@ function TodoReducer(state, action) {
         todos: [...state.todos, { id: id(), description: action.payload, isDone: false }],
       };
     case 'INCREMENT':
-        return {...state, count: state.count + 1}
+        return {...state, count: state.count + 1};
+    case 'DECREMENT':
+        return {...state, count: state.count - 1};
+    case 'INCREMENT_COUNT_BY':
+          return {...state, count: state.count + action.payload} ;  
     case 'DEL_TODO':
-      return state
+    return {...state,todos:state.todos.filter(item=>item.id!==action.payload)}      
     default:
       throw new Error();
   }
@@ -24,8 +28,11 @@ function TodoReducer(state, action) {
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(TodoReducer, initialState);
   return (
-    <Provider value={{ state: state, dispatch: dispatch }}>{children}</Provider>
+    <Provider value={{ state, dispatch }}>{children}</Provider>
   );
 };
 
 export default StateProvider;
+
+   // case 'DEL_TODO':
+    //   return {...state,todo:state.todos.filter(item=>item.id!==action.payload)}
