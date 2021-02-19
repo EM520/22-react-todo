@@ -14,11 +14,11 @@ export default function Todo() {
     e.preventDefault();
     const action = { type: "ADD_TODO", payload: text };
     const count = {type:'INCREMENT'}
-    const del = { type: "DEL_TODO", payload: todos.id }
+    // const del = { type: "DEL_TODO", payload: todos.id }
 
     dispatch(action)
     // dispatch(del)
-    dispatch(del)
+    dispatch(count)
     // dispatch({type:'INCREMENT_COUNT_BY'})
     //console.log(count)
     setText('');
@@ -26,10 +26,10 @@ export default function Todo() {
   return (
     <div>
       <header className="header">todos</header>
-     
+      <button onClick={()=>dispatch({type:'DECREMENT'})}>decrement</button>
       <form onSubmit={handleSubmit} action="" >
-       <button onClick={()=>dispatch({type:'DECREMENT'})}>decrement</button> 
-       <button onClick={()=>dispatch({type:'INCREMENT_COUNT_BY',payload:10})}>increment10</button>
+       
+       {/* <button onClick={()=>dispatch({type:'INCREMENT_COUNT_BY',payload:10})}>increment10</button> */}
       
         <input
           value={text}
@@ -39,7 +39,7 @@ export default function Todo() {
           placeholder=" What need to be done?" 
         />
       <TodoList todos={todos} />
-      <span onClick={()=>dispatch({type:'DEL_TODO',payload:todos.id})}>&#10060;</span>
+      
 
       <div className='footer'>
       <span className='count'> {count} items left</span>
