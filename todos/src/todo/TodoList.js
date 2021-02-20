@@ -5,28 +5,35 @@ export default function TodoList(props) {
   const { dispatch } = globalState;
   return (
     <ul>
+      
       {props.todos.map((todo) => {
         //console.log(todo);
         return (
-          <li
+           <li  
             key={todo.id}
             id="todoList"
-            className={todo.isDone == false ? "" : "done"}
-          >
+            className={todo.isDone == false ? "" : "done"}>
+           <div id='checkmark' >
             <input
               onChange={() =>
                 dispatch({ type: "CHECK_TODO", payload: todo.id })
               }
               checked={todo.isDone}
-              className="checkmark"
+              className="radio"
               type="radio"
             />
+            {" "}
             {todo.description}
-            <button
+            </div>
+
+            <div className='hiddenBtn'>
+            <button className="delBtn" 
               onClick={() => dispatch({ type: "DEL_TODO", payload: todo.id })}
             >
               &#10060;
             </button>
+            </div>
+
           </li>
         );
       })}

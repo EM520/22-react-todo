@@ -16,7 +16,7 @@ body {
   font-weight: lighter;
 }
 
-form {
+.formBox {
   border: 3px solid white;
   width: 60%;
   height: 600vh;
@@ -34,6 +34,7 @@ form {
   font-size: 25px;
   font-family: "Franklin Gothic Medium", Arial;
   font-style: italic;
+  color:grey;
 }
 
 .input:focus {
@@ -55,16 +56,34 @@ form {
 
 
 /* Create a custom radio button */
-.checkmark {
+.radio{
   height: 25px;
-  width: 25px;
-  
+  width: 25px; 
 }
 
+#todoList{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+.hidden{
+  display: none;
+}
+
+
+.delBtn{
+  font-size:20px;
+  border:none;
+  margin-right:50px; 
+}
+
+#checkmark:hover + .hiddenBtn{
+  display:block;
+}
 .done{
   text-decoration: line-through lightgrey;
   color:lightgrey;
-  
   
 }
 .footer{
@@ -83,6 +102,4 @@ form {
   padding-right: 20px;
   
 }
-.hidden{
-  display: none;
-}
+
