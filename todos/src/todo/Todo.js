@@ -7,11 +7,16 @@ import TodoList from "./TodoList";
 export default function Todo() {
   const globalState = useContext(store);
   const [text, setText] = useState("");
+  
   const todos = globalState.state.todos;
+  // const trackingTodos = globalState.state.trackingTodos;
   const count = globalState.state.count;
-  const activeTodos = globalState.state.activeTodos;
-  const completeTodos = globalState.state.completeTodos;
   const { dispatch } = globalState;
+  const found = todos.find((x)=>x.isDone===true)
+  const activeTodos= todos.filter((item)=>item.isDone===false)
+  console.log(found,"foundtrue")
+  console.log(todos,"todos list array")
+  // console.log(todos,"trackingTodos")
   function handleSubmit(e) {
     e.preventDefault();
     const action = { type: "ADD_TODO", payload: text };
@@ -23,9 +28,11 @@ export default function Todo() {
     //console.log(count)
     setText('');
   }
+
   return (
     <div>
       <header className="header">todos</header>
+      {/* <button className='count'> {activeTodos.length} items left</button> */}
       {/* <button onClick={()=>dispatch({type:'DECREMENT'})}>decrement</button> */}
       <div className="formBox">
       <form onSubmit={handleSubmit} action="" >
@@ -41,12 +48,18 @@ export default function Todo() {
         />
       </form>
         <TodoList todos={todos} />
-      <div className='footer'>
-        <span className='count'> {count} items left</span>
-        <span className='all'onClick={() => dispatch({type:"ALL"})}>All</span>
-        <span className=''onClick={() => dispatch({type:"ACTIVE"})}>Active</span>
-        <span className='completed' onClick={() => dispatch({type:"COMPLETED"})}>Completed</span>
-        <span className='hidden'> Clear Completed</span>
+      <div className={todos.length>=1?'footer':"hidden"}>
+        <button className='count'> {activeTodos.length} items left</button>
+        <button id='all' onClick={() => dispatch({type:"ALL"})}>All</button>
+        <button className='active'onClick={() => dispatch({type:"ACTIVE"})}>Active</button>
+        <button className='completed' onClick={() => dispatch({type:"COMPLETED"})}>Completed</button>
+          
+        <button 
+        className={ found?"":"hidden"}
+        onClick={()=>dispatch({type:"CLEAR"})}> 
+        Clear Completed
+        </button>
+      
       </div>
       </div>
     </div>

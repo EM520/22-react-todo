@@ -1,7 +1,5 @@
-import { createContext, useContext, useReducer, useState } from 'react'
-import StateProvider ,{store} from './Provider'
 
-
+import StateProvider from './Provider'
 import Todo from './Todo'
 
 export default function TodoApp() {
@@ -10,5 +8,7 @@ export default function TodoApp() {
     </StateProvider>
 }
 
-// Provider:
-//action:
+// Provider:provide the value (state)
+//action:object that describes what happened {type:"ADD_TODO", payload:"text"}
+//reducer:takes the state and action and reduces to a new state
+//store is a combination of reducers that hold state
